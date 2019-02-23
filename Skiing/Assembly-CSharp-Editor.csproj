@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{171C7F6F-6ED2-9D45-3983-042DB7C3967A}</ProjectGuid>
+    <ProjectGuid>{AFB99B7D-968B-B30F-862A-9F5C672B86E3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -76,19 +76,19 @@
      <Compile Include="Assets\Oculus\Spatializer\Editor\ONSPPropagationMaterialEditor.cs" />
      <Compile Include="Assets\Oculus\Spatializer\Editor\ONSPReflectionCustomGUI.cs" />
  <Reference Include="Assembly-UnityScript">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/软件/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -387,13 +387,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{68935561-146A-092C-1CE2-388EF65D57EF}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{665E2A2A-65FC-6BA8-64F1-0F1DC8BFAEC8}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
-      <Project>{E6604633-A0A0-8612-B815-C06BA7372054}</Project>      <Name>Oculus.VR.Editor</Name>    </ProjectReference>
+      <Project>{559DECD6-180C-C369-F110-BB0B753250E5}</Project>      <Name>Oculus.VR.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Oculus.VR.Scripts.Editor.csproj">
-      <Project>{107C89F1-47B1-2F76-7FFE-D1D3906FA95D}</Project>      <Name>Oculus.VR.Scripts.Editor</Name>    </ProjectReference>
+      <Project>{A878E5FF-291A-2DB6-0A8D-EB23C087F483}</Project>      <Name>Oculus.VR.Scripts.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{59E0FCFA-F672-B4EC-A08B-E260A6BEE799}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
+      <Project>{BA947523-A29F-8DEF-CCED-2DF3915D346E}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{68935561-146A-092C-1CE2-388EF65D57EF}</ProjectGuid>
+    <ProjectGuid>{665E2A2A-65FC-6BA8-64F1-0F1DC8BFAEC8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Gems Ultimate Pack\Scripts\AnimationScript.cs" />
      <Compile Include="Assets\HiClass.cs" />
      <Compile Include="Assets\Oculus\AudioManager\Scenes\Scripts\TestScript.cs" />
      <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AmbienceEmitter.cs" />
@@ -334,6 +335,8 @@
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\Helpers\OVRMicInput.cs" />
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\OVRVoiceMod.cs" />
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\OVRVoiceModContext.cs" />
+     <Compile Include="Assets\Scripts\HeartScript.cs" />
+     <Compile Include="Assets\Scripts\Rocks_Trigger.cs" />
      <Compile Include="Assets\Shooter Game\Scripts\Blaster.cs" />
      <Compile Include="Assets\Shooter Game\Scripts\Bullet.cs" />
      <Compile Include="Assets\Shooter Game\Scripts\Enemy.cs" />
@@ -346,6 +349,7 @@
      <None Include="Assets\Oculus\SampleFramework\Usage\Locomotion\Shaders\TriPlanarWorld.shader" />
      <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Materials\Hands_Transparent.shader" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_Mobile_Loader.shader" />
+     <None Include="Assets\SimpleSky\ReadMe.txt" />
      <None Include="Assets\Oculus\Avatar\Content\Materials\AvatarSurfaceShader.shader" />
      <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Shaders\Hands_02.shader" />
      <None Include="Assets\Oculus\Avatar\Content\Materials\AvatarSurfaceShaderSelfOccluding.shader" />
@@ -359,6 +363,8 @@
      <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Shaders\Hands_01.shader" />
      <None Include="Assets\Oculus\SampleFramework\Core\DebugUI\Fonts\Montserrat\OFL.txt" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarSurfaceShaderPBSV2.shader" />
+     <None Include="Assets\Meshtint Free Santa Claus\www.meshtint.com.txt" />
+     <None Include="Assets\Meshtint Free Santa Claus\Read me.txt" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_Mobile_SingleComponent.shader" />
      <None Include="Assets\Oculus\SampleFramework\Core\Locomotion\Materials\ColumnGlow.shader" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarMaterialStateShader.cginc" />
@@ -366,16 +372,16 @@
      <None Include="Assets\Oculus\SampleFramework\Usage\DistanceGrab\Materials\ToyCubeWithOutline.shader" />
      <None Include="Assets\Oculus\SampleFramework\Usage\DistanceGrab\Materials\CrosshairZCheat.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/软件/Unity Build Game/New Unity Project (2)/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/软件/Unity Build Game/Skiing/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/软件/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -611,11 +617,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Oculus.VR.Editor.csproj">
-      <Project>{E6604633-A0A0-8612-B815-C06BA7372054}</Project>      <Name>Oculus.VR.Editor</Name>    </ProjectReference>
+      <Project>{559DECD6-180C-C369-F110-BB0B753250E5}</Project>      <Name>Oculus.VR.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Oculus.VR.Scripts.Editor.csproj">
-      <Project>{107C89F1-47B1-2F76-7FFE-D1D3906FA95D}</Project>      <Name>Oculus.VR.Scripts.Editor</Name>    </ProjectReference>
+      <Project>{A878E5FF-291A-2DB6-0A8D-EB23C087F483}</Project>      <Name>Oculus.VR.Scripts.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{59E0FCFA-F672-B4EC-A08B-E260A6BEE799}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
+      <Project>{BA947523-A29F-8DEF-CCED-2DF3915D346E}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

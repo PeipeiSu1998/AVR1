@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E6604633-A0A0-8612-B815-C06BA7372054}</ProjectGuid>
+    <ProjectGuid>{559DECD6-180C-C369-F110-BB0B753250E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Oculus.VR.Editor</AssemblyName>
@@ -356,7 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Oculus.VR.csproj">
-      <Project>{59E0FCFA-F672-B4EC-A08B-E260A6BEE799}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
+      <Project>{BA947523-A29F-8DEF-CCED-2DF3915D346E}</Project>      <Name>Oculus.VR</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

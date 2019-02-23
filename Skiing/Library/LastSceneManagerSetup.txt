@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Shooter Game/Scenes/ShooterScene.unity
+- path: Assets/Meshtint Free Santa Claus/Scenes/Demo 01.unity
   isLoaded: 1
   isActive: 1
