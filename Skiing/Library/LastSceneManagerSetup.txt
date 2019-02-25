@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Meshtint Free Santa Claus/Scenes/Demo 01.unity
+- path: Assets/Scene/Lose Scene.unity
   isLoaded: 1
   isActive: 1

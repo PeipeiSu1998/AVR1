@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeartScript : MonoBehaviour {
     public static int lifeNumber = 3;
@@ -24,9 +25,7 @@ public class HeartScript : MonoBehaviour {
         }
         else if (lifeNumber == 0)
         {
-            heart1.GetComponent<Renderer>().enabled = false;
-            heart2.GetComponent<Renderer>().enabled = false;
-            heart3.GetComponent<Renderer>().enabled = false;
+            SceneManager.LoadScene("Lose Scene");
         }
 	}
 }
