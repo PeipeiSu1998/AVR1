@@ -336,12 +336,9 @@
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\OVRVoiceMod.cs" />
      <Compile Include="Assets\Oculus\VoiceMod\Scripts\OVRVoiceModContext.cs" />
      <Compile Include="Assets\Scripts\HeartScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Rocks_Trigger.cs" />
-     <Compile Include="Assets\Shooter Game\Scripts\Blaster.cs" />
-     <Compile Include="Assets\Shooter Game\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Shooter Game\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Shooter Game\Scripts\EnemySpawner.cs" />
-     <Compile Include="Assets\Shooter Game\Scripts\ReturnToGame.cs" />
+     <Compile Include="Assets\Scripts\SoundsForWinner.cs" />
      <None Include="Assets\Oculus\Avatar\Content\Materials\AvatarMaterialStateShader.cginc" />
      <None Include="Assets\Oculus\Avatar\Samples\CrossPlatform\Readme.txt" />
      <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_PC_SingleComponent.shader" />
