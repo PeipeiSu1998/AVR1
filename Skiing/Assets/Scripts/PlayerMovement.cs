@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
+    public static bool shouldStop = false;
     public Rigidbody camera;
 
     public float movementSpeed = 5;
@@ -16,8 +18,11 @@ public class PlayerMovement : MonoBehaviour {
 	
 	
 	void FixedUpdate () {
-        // camera.position += transform.forward * Time.deltaTime * movementSpeed;
-        camera.AddForce(-100f,-10f,0f);
+        if (shouldStop == false)
+        {
+            camera.position += transform.forward * Time.deltaTime * movementSpeed;
+            //   camera.AddForce(-5f,0f,0f);
+        }
 
     }
 }
