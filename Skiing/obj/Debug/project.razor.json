@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\Rome\\Documents\\Unity projects\\Github Repos\\AVR\\AVR1\\Skiing\\Skiing\\Oculus.VR.Editor.csproj",
+  "TargetFramework": "v3.5",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

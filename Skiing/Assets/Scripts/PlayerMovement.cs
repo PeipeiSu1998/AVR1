@@ -14,9 +14,10 @@ public class PlayerMovement : MonoBehaviour {
         camera = GetComponent<Rigidbody>();
     }
 	
-	// Update is called once per frame
+	
 	void FixedUpdate () {
-        camera.position += transform.forward * 1 * Time.deltaTime * movementSpeed;
+        // camera.position += transform.forward * Time.deltaTime * movementSpeed;
+        camera.AddForce(-100f,-10f,0f);
 
     }
 }
