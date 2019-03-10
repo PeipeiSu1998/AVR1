@@ -9,6 +9,7 @@ TagManager:
   - Life
   - Character
   - Heart
+  - GroundStart
   layers:
   - Default
   - TransparentFX
@@ -45,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Invis
+    uniqueID: 3665049365
     locked: 0

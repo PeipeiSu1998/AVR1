@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Peipei
-  productName: UnityProject
+  productName: Skiing
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -752,9 +752,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 8463567f-fc63-48ab-a5eb-fd494e600dfc
-  projectName: New Unity Project (2)
-  organizationId: unity_266128
+  cloudProjectId: 9b97d548-6731-45ec-812c-509208eba739
+  projectName: Skiing
+  organizationId: phusentast
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

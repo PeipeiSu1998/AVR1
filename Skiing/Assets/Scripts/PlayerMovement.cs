@@ -1,114 +1,120 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     public static bool shouldStop = false;
     public Rigidbody player;
-    public GameObject controller;
+    public GameObject canvas, camerarig;
+    public Text debugText;
+    private OVRCameraRig OVRCameraRig;
+    
+    
 
     public float movementSpeed = 2;
     public float rotationSpeed = 5;
     public float rotationDegrees = 90;
-    public float speedIncrease = 0.2f;
+    public float speedIncrease = 5;
+    public float touch = -0.2f;
 
-    private bool startZone,controllerAccess,goodControllerPos, leftEngaged,rightEngaged;
+    private bool startZone,goodControllerPos;
 
-    private Vector3  currentHeadPose,goLeft,goRight, goLeftAndForward, goRightAndForward, forwardIncreasing, headingNow;
+    private Vector3  currentHeadPose;
     
-
+    private Vector2 touchPosition;
     private Transform eyeAnchor;
 
 
     // Use this for initialization
     void Start () {
-        player = GetComponent<Rigidbody>();
-        headingNow = player.position;
-        // eyeAnchor = OVRCameraRig.center;
-
-        //what is the vector 3 on the rig when head is rolled left or right?
-        // headRolledLeft = new Vector3();
-        // headRolledRight = new Vector3();
+        // player = GetComponent<Rigidbody>();
+        canvas.name = "Canvas";
+        canvas.GetComponent<Canvas>();
+        debugText.name = "Text";
+        debugText.GetComponent<Text>();
+        // StartCoroutine(setTouchPosition());
+        // StartCoroutine(SpeedIncrease());
+        camerarig = GetComponent<GameObject>();
+        // OVRCameraRig = camerarig.GetComponent<OVRCameraRig>();
+        OVRCameraRig = FindObjectOfType<OVRCameraRig>();
+        eyeAnchor = OVRCameraRig.centerEyeAnchor;
         StartCoroutine(SpeedIncrease());
-
-        forwardIncreasing = transform.forward * speedIncrease * Time.deltaTime;
-
-        goLeft = (transform.right * -1) * Time.deltaTime;
-        goRight = transform.right * Time.deltaTime;
-
-        goLeftAndForward = ((transform.right * -1) + forwardIncreasing) * Time.deltaTime; 
-        goRightAndForward = ((transform.right) + forwardIncreasing) * Time.deltaTime;
-
+        
     }
 
 
-    void FixedUpdate()
-    {
 
-
-
-        //if ((!shouldStop))
-        //{
-        //    headingNow += transform.forward * Time.deltaTime;
-        if (Input.GetKey(KeyCode.W))
+        void FixedUpdate()
         {
-            player.position += transform.forward * Time.deltaTime;
+        //     Debug.Log(speedIncrease);
+    
+        // if (Input.GetKey(KeyCode.W))
+        // {
+        //    player.position += transform.forward * speedIncrease * Time.deltaTime;
+        //     debugText.text = speedIncrease.ToString();
+           
+
+        // }
+
+        //else 
+        if(!startZone){
+            RollViaController();           
+            
         }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            player.position += goLeft;
-
+        
+     else if(startZone) {
+            StartZoneControls();            
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            player.position += goRight;
-        }
-        //else if (OVRInput.Get(OVRInput.Button.DpadLeft) && !startZone)
-        //{
-        //    player.position += goLeftAndForward;
-        //}
-        //else if (OVRInput.Get(OVRInput.Button.DpadLeft) && !startZone)
-        //{
-        //    player.position += goRightAndForward;
-        //}
+        // else if(OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
+        // {
+        //     touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+        //     if(touchPosition.x < 0){
+        //         debugText.text = touchPosition.ToString();
+        //     player.position += (transform.right *-1)*Time.deltaTime;
+        //     }
+        // }
+      
 
-        //else if (OVRInput.Get(OVRInput.Button.DpadLeft) && startZone)
-        //{
-        //    player.position += goLeft;
-
-        //}
-        //else if (OVRInput.Get(OVRInput.RawButton.DpadRight) && startZone)
-        //{
-        //    player.position += goRight;
-        //}
-
-        // yes, are they touching the touchpad?
-        //if (OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
-        //{
-        //    // yes, let's require an actual click rather than just a touch.
-        //    if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        // //tjekker efter knap tryk     
+        // else 
+        // if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
         //    {
-        //        player.position += goLeft;
-        //        // button is depressed, handle the touch.
-        //        //Vector2 touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-        //        //ProcessControllerClickAtPosition(touchPosition);
-        //    }
-        //}
+        //        debugText.text = "Reached it";
+        //        player.position += transform.forward * 10 * Time.deltaTime;
+        //     // button is depressed, handle the touch.
+        //     //Vector2 touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+        //     //ProcessControllerClickAtPosition(touchPosition);
+        // }
+        // else if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        // {
+        //     debugText.text = "triggered";
+        //     player.position += goLeft;
 
+        // }        
+        // else 
+        // if (Input.GetKey(KeyCode.A))
+        // {
+        //    player.position += transform.forward * Time.deltaTime;
+        //    debugText.text = "a is reached";
 
-
+        // }
+        // else if (Input.GetKey(KeyCode.D))
+        // {
+        //     player.position += transform.right * Time.deltaTime;
+        // }
 
     }
+
+    
 
     private void OnCollisionEnter(Collision other)
     {
        
         if (other.collider.CompareTag("GroundStart"))
-        {
-            
+        {            
             startZone = true;
-           
             // player.AddTorque(positiv if the map is reversed but could be used as a break when dragging)
         }
         else
@@ -116,38 +122,95 @@ public class PlayerMovement : MonoBehaviour
             startZone = false;
         }
     }
-
+    //For every second spent on anything but the starting ground will increase speed x2
     private IEnumerator SpeedIncrease()
-    {
-        while (true)
+    {     
+        while(true)
         {
+            if(!startZone)
+            {
+                yield return new WaitForSeconds(1);
+                speedIncrease = speedIncrease * 1.5f;
+                  
 
-        print("speedincreasebefore" + speedIncrease);
-        if (startZone)
-        {
-            speedIncrease += speedIncrease;
-            print("speedincrease" + speedIncrease);
+            }
             yield return null;
-        }
 
+        }
+        
+        
+        
+    }
+    //doesn't seem needed anymore
+    private IEnumerator setTouchPosition(){
+        while(true){        
+            touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+            yield return null;        
         }
     }
 
-    private void ForwardViaController(){
-
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && startZone){
-            //todo
+    private void StartZoneControls()
+    {
+        debugText.text = "startzoneControls";
+        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        {
+            player.position += transform.forward * 10 * Time.deltaTime;
         }
-    }
-    //do the rolling of the head with controller input
-    private void RollViaController(){
+        else if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad)){
+            touch = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad).x;
+            debugText.text = touch.ToString();             
+        
+                if (touch < 0)
+            {
+                //Go left
+                player.position += (transform.right * -1) * 3 * Time.deltaTime;
+                debugText.text = touch.ToString();               
+                
+            }
+                else if(touch > 0)
+            {
+                //go right
+                player.position += (transform.right) * 3 * Time.deltaTime;
+                
+            }
 
-        // if(OVRInput.GetDown(OVRInput.Button.DpadLeft)){
-        //     player.position += transform.left * Time.deltaTime; 
-        // }else if(Input.GetKeyDown(KeyCode.A)){
-        //     player.position += transform.left * Time.deltaTime;
+        
+        } 
+        //make the dragging stuff
+        // else if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
+
+        //     player.position += transform.forward * speedIncrease * Time.deltaTime;
         // }
+        return;
+
     }
+    //do the left and right turn when pressing the touchpad, 
+    private void RollViaController(){
+        
+        debugText.text = "rollviaController method";
+        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        {
+            player.position += transform.forward * 10 * Time.deltaTime;
+        }
+        else if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad)){
+            touch = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad).x;
+        if(touch < 0 )
+        {
+            debugText.text = touch.ToString();
+            //go left and forward when not in the startzone
+            player.position += ((transform.right * -1) + (transform.forward * speedIncrease)) * Time.deltaTime; 
+        }
+        else if (touch > 0)
+        {
+            //go right and forward when not in the start zone
+            player.position += ((transform.right) + (transform.forward * speedIncrease)) * Time.deltaTime;
+        }
+        }
+       return;
+        
+    }
+
+    
 
     
 
