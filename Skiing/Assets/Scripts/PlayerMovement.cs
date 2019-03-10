@@ -52,11 +52,11 @@ public class PlayerMovement : MonoBehaviour
         {
         //     Debug.Log(speedIncrease);
     
-        // if (Input.GetKey(KeyCode.W))
-        // {
-        //    player.position += transform.forward * speedIncrease * Time.deltaTime;
-        //     debugText.text = speedIncrease.ToString();
-        //}
+        if (Input.GetKey(KeyCode.W))
+        {
+           player.position += transform.forward * 5 * Time.deltaTime;
+            debugText.text = speedIncrease.ToString();
+        }
         if(!startZone){
             RollViaController();           
             
@@ -76,9 +76,6 @@ public class PlayerMovement : MonoBehaviour
         {            
             startZone = true;
             // player.AddTorque(positiv if the map is reversed but could be used as a break when dragging)
-        }
-        else if (other.collider.CompareTag("Rock")){
-            HeartScript.lifeNumber -= 1;
         }
         else
         {
