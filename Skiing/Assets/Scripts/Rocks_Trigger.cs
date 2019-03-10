@@ -6,9 +6,9 @@ public class Rocks_Trigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<Collider>().CompareTag("Rock")){
+        // if(other.GetComponent<Collider>().CompareTag("Rock")){
 
-        HeartScript.lifeNumber -= 1;
-        }
+        // HeartScript.lifeNumber -= 1;
+        // }
     }
 }

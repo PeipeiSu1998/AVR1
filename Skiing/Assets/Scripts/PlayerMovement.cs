@@ -77,6 +77,9 @@ public class PlayerMovement : MonoBehaviour
             startZone = true;
             // player.AddTorque(positiv if the map is reversed but could be used as a break when dragging)
         }
+        else if (other.collider.CompareTag("Rock")){
+            HeartScript.lifeNumber -= 1;
+        }
         else
         {
             startZone = false;
