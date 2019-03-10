@@ -16,12 +16,12 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 2;
     public float rotationSpeed = 5;
     public float rotationDegrees = 90;
-    public float speedIncrease = 1;
+    public float speedIncrease = 5;
     public float touch = -0.2f;
 
     private bool startZone,goodControllerPos;
 
-    private Vector3  currentHeadPose,goLeft,goRight, goLeftAndForward, goRightAndForward, forwardIncreasing, headingNow;
+    private Vector3  currentHeadPose;
     
     private Vector2 touchPosition;
     private Transform eyeAnchor;
@@ -55,21 +55,40 @@ public class PlayerMovement : MonoBehaviour
     //    debugText.text = eyeAnchor.rotation.ToString();
         //  if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
         //     player.position += transform.forward * 10 * Time.deltaTime;
+        //     if (Input.GetKey(KeyCode.W) && startZone)
+        // {
+            
+        //     debugText.text = "You got here!";
+     
+        //     player.position += transform.forward * speedIncrease * Time.deltaTime;
 
         // }
+        // }
+        
+        // if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        // {
+        //     // player.position += transform.forward * Time.deltaTime;
+        //     player.position += transform.forward * Time.deltaTime;
+        //     debugText.text = player.position.ToString();
+        // }
+        //     // StartZoneControls();
 
-        if(startZone){
+        if(!startZone){
+            RollViaController();
             
-            debugText.text = "Got to the method";
-            StartZoneControls();
             //du har ikke ramt her inde endnu og vi tester om speedincrease kan være for sig selv i start 
         }
+        
         else {
-            
+            StartZoneControls();            
         }
         // else if(OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
         // {
         //     touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+        //     if(touchPosition.x < 0){
+        //         debugText.text = touchPosition.ToString();
+        //     player.position += (transform.right *-1)*Time.deltaTime;
+        //     }
         // }
         // print(touchPosition);
         //if ((!shouldStop))
@@ -91,11 +110,7 @@ public class PlayerMovement : MonoBehaviour
         //     player.position += goLeft;
 
         // }
-        //else if (OVRInput.Get(OVRInput.RawButton.DpadRight) && startZone)
-        //{
-        //    player.position += goRight;
-        //}
-
+        
         // yes, are they touching the touchpad?
         //if (OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
         //{
@@ -108,23 +123,17 @@ public class PlayerMovement : MonoBehaviour
         //        //ProcessControllerClickAtPosition(touchPosition);
         //    }
         //}
-        if (Input.GetKey(KeyCode.W) && startZone)
-        {
-            
-            debugText.text = "You got here!";
-            // headingNow += forwardIncreasing;
-            player.position += transform.forward * speedIncrease * Time.deltaTime;
-
-        }
-        //else if (Input.GetKey(KeyCode.A))
-        //{
-        //    player.position += goLeft;
+        
+        //else 
+        // if (Input.GetKey(KeyCode.A))
+        // {
+        //    player.position += transform.forward * Time.deltaTime;
         //    debugText.text = "a is reached";
 
-        //}
+        // }
         // else if (Input.GetKey(KeyCode.D))
         // {
-        //     player.position += goRight;
+        //     player.position += transform.right * Time.deltaTime;
         // }
 
     }
@@ -153,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 yield return new WaitForSeconds(1);
                 speedIncrease += speedIncrease;
-                StopCoroutine(SpeedIncrease());  
+                  
 
             }
 
@@ -172,47 +181,48 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartZoneControls()
     {
-        debugText.text ="Got inside the startz";
+        
         if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
             player.position += transform.forward * 10 * Time.deltaTime;
         }
-        else if (OVRInput.Get(OVRInput.Touch.PrimaryTouchpad)){
-
+        else if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad)){
             touch = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad).x;
-             if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
-             {
-            debugText.text = touch.ToString();
+            debugText.text = touch.ToString();             
+        
                 if (touch < 0)
             {
                 //Go left
                 player.position += (transform.right * -1) * 3 * Time.deltaTime;
+                debugText.text = touch.ToString();               
                 
             }
-                else 
+                else if(touch > 0)
             {
                 //go right
                 player.position += (transform.right) * 3 * Time.deltaTime;
                 
             }
 
-        }
+        
+        } else if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)){
+            player.position += transform.forward * speedIncrease * Time.deltaTime;
         }
 
     }
     //do the left and right turn when pressing the touchpad, 
     private void RollViaController(){
         
-
-        if(touch < 0 && !startZone)
+        debugText.text = "reached rollviaController";
+        if(touch < 0 )
         {
             //go left and forward when not in the startzone
-            player.position += ((transform.right * -1) + forwardIncreasing) * Time.deltaTime; 
+            player.position += ((transform.right * -1) + (transform.forward * speedIncrease)) * Time.deltaTime; 
         }
-        else if (touch > 0 && !startZone)
+        else if (touch > 0)
         {
             //go right and forward when not in the start zone
-            player.position += ((transform.right) + forwardIncreasing) * Time.deltaTime;
+            player.position += ((transform.right) + (transform.forward * speedIncrease)) * Time.deltaTime;
         }
        
         
