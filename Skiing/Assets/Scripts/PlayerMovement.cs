@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float rotationDegrees = 90;
     public float speedIncrease = 5;
     public float touch = -0.2f;
+    private float headRotation;
 
     private bool startZone,goodControllerPos;
 
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         OVRCameraRig = FindObjectOfType<OVRCameraRig>();
         eyeAnchor = OVRCameraRig.centerEyeAnchor;
         StartCoroutine(SpeedIncrease());
+
         
     }
 
@@ -54,11 +56,7 @@ public class PlayerMovement : MonoBehaviour
         // {
         //    player.position += transform.forward * speedIncrease * Time.deltaTime;
         //     debugText.text = speedIncrease.ToString();
-           
-
-        // }
-
-        //else 
+        //}
         if(!startZone){
             RollViaController();           
             
@@ -67,44 +65,6 @@ public class PlayerMovement : MonoBehaviour
      else if(startZone) {
             StartZoneControls();            
         }
-        // else if(OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
-        // {
-        //     touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-        //     if(touchPosition.x < 0){
-        //         debugText.text = touchPosition.ToString();
-        //     player.position += (transform.right *-1)*Time.deltaTime;
-        //     }
-        // }
-      
-
-        // //tjekker efter knap tryk     
-        // else 
-        // if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
-        //    {
-        //        debugText.text = "Reached it";
-        //        player.position += transform.forward * 10 * Time.deltaTime;
-        //     // button is depressed, handle the touch.
-        //     //Vector2 touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-        //     //ProcessControllerClickAtPosition(touchPosition);
-        // }
-        // else if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-        // {
-        //     debugText.text = "triggered";
-        //     player.position += goLeft;
-
-        // }        
-        // else 
-        // if (Input.GetKey(KeyCode.A))
-        // {
-        //    player.position += transform.forward * Time.deltaTime;
-        //    debugText.text = "a is reached";
-
-        // }
-        // else if (Input.GetKey(KeyCode.D))
-        // {
-        //     player.position += transform.right * Time.deltaTime;
-        // }
-
     }
 
     
@@ -140,13 +100,6 @@ public class PlayerMovement : MonoBehaviour
         
         
         
-    }
-    //doesn't seem needed anymore
-    private IEnumerator setTouchPosition(){
-        while(true){        
-            touchPosition = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-            yield return null;        
-        }
     }
 
     private void StartZoneControls()
@@ -185,12 +138,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
     //do the left and right turn when pressing the touchpad, 
-    private void RollViaController(){
+    private void RollViaController(){        
         
-        debugText.text = "rollviaController method";
         if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
         {
+            if(true)
+            {
             player.position += transform.forward * 10 * Time.deltaTime;
+
+            }
         }
         else if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad)){
             touch = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad).x;
@@ -210,7 +166,14 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    
+    private bool Drag()
+    {
+        if(true){
+            
+        }
+
+        return false;
+    }
 
     
 

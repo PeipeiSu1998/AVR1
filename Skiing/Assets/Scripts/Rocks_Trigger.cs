@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Rocks_Trigger : MonoBehaviour {
 
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerEnter(Collider other)
     {
+        if(other.GetComponent<Collider>().CompareTag("Rock")){
+
         HeartScript.lifeNumber -= 1;
+        }
     }
 }
