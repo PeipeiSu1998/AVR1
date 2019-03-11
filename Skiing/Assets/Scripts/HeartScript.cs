@@ -23,9 +23,12 @@ public class HeartScript : MonoBehaviour {
             heart1.GetComponent<Renderer>().enabled = false;
             heart2.GetComponent<Renderer>().enabled = false;
         }
-        else if (lifeNumber == 0)
+        else if(lifeNumber==0)
         {
-            SceneManager.LoadScene("Lose Scene");
+            heart1.GetComponent<Renderer>().enabled = false;
+            heart2.GetComponent<Renderer>().enabled = false;
+            heart3.GetComponent<Renderer>().enabled = false;
+            SceneManager.LoadScene("gameover");
         }
 	}
 }
